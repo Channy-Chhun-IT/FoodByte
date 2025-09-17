@@ -1,13 +1,14 @@
 import React from "react";
 import { Star } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import channyAvatar from "../assets/channy-1.jpg";
 
 const ReviewsSection: React.FC = () => {
   const reviews = [
     {
       id: 1,
       name: "Chhun Channy",
-      avatar: "/src/assets/channy-1.jpg",
+      avatar: channyAvatar,
       rating: 5,
       review:
         "The quality of fresh produce is absolutely amazing! Everything arrives perfectly fresh and the same-day delivery is a game changer for our family.",
@@ -16,7 +17,7 @@ const ReviewsSection: React.FC = () => {
     {
       id: 2,
       name: "Channy Chhun",
-      avatar: "/src/assets/channy-1.jpg",
+      avatar: channyAvatar,
       rating: 5,
       review:
         "I've been ordering from FoodByte for months now. The artisan breads and organic products are top-notch, and the customer service is exceptional.",
@@ -25,7 +26,7 @@ const ReviewsSection: React.FC = () => {
     {
       id: 3,
       name: "Neang Neang",
-      avatar: "/src/assets/channy-1.jpg",
+      avatar: channyAvatar,
       rating: 4,
       review:
         "Love the variety and freshness guarantee! The seasonal vegetable boxes have introduced our family to so many new flavors. Highly recommend!",
