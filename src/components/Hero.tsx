@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Star } from 'lucide-react';
-import heroBanner from '@/assets/hero-banner.jpg';
+import heroBanner from '@/assets/food-hero-banner.jpg';
 
 const Hero: React.FC = () => {
   const scrollToProducts = () => {
@@ -24,20 +24,20 @@ const Hero: React.FC = () => {
           {/* Badge */}
           <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 animate-fade-in">
             <Star className="w-4 h-4 text-yellow-400 fill-current mr-2" />
-            <span className="text-sm font-medium">Premium Tech Collection</span>
+            <span className="text-sm font-medium">Fresh & Premium Quality</span>
           </div>
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
-            Discover the Future of
+            Fresh Gourmet Foods
             <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-              Technology
+              Delivered Daily
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in">
-            Explore our curated collection of premium tech products designed to enhance your digital lifestyle. Quality, innovation, and style combined.
+            From farm-fresh produce to artisan breads and premium meats. Experience the finest quality ingredients delivered straight to your door.
           </p>
 
           {/* CTA Buttons */}
@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
               onClick={scrollToProducts}
               className="btn-hero group"
             >
-              Shop Collection
+              Shop Fresh Foods
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button 
@@ -60,16 +60,16 @@ const Hero: React.FC = () => {
           {/* Stats */}
           <div className="flex flex-wrap justify-center gap-8 mt-12 text-white/80">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">10K+</div>
-              <div className="text-sm">Happy Customers</div>
+              <div className="text-2xl font-bold text-white">5K+</div>
+              <div className="text-sm">Happy Families</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">98%</div>
-              <div className="text-sm">Satisfaction Rate</div>
+              <div className="text-2xl font-bold text-white">100%</div>
+              <div className="text-sm">Fresh Guarantee</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white">24/7</div>
-              <div className="text-sm">Support</div>
+              <div className="text-2xl font-bold text-white">Same Day</div>
+              <div className="text-sm">Delivery</div>
             </div>
           </div>
         </div>

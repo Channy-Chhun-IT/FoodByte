@@ -1,0 +1,14 @@
+-- Update existing products table with food items
+DELETE FROM public.products;
+
+-- Insert food products
+INSERT INTO public.products (name, description, price, original_price, image, category, rating, reviews, in_stock, features) VALUES
+('Artisan Sourdough Bread', 'Fresh baked daily with organic flour and natural starter', 8.99, 12.99, 'https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=400', 'Bakery', 5, 127, true, ARRAY['Organic ingredients', 'Made fresh daily', 'Natural starter', 'Artisan crafted']),
+('Premium Aged Cheese Selection', 'Curated selection of 6 premium aged cheeses from local farms', 24.99, 29.99, 'https://images.unsplash.com/photo-1552767059-ce182ead6c1b?w=400', 'Dairy', 4, 89, true, ARRAY['6 different cheeses', 'Locally sourced', 'Aged to perfection', 'Includes tasting notes']),
+('Organic Free-Range Eggs', 'Farm fresh eggs from pasture-raised hens, dozen pack', 6.99, NULL, 'https://images.unsplash.com/photo-1582722872445-44dc5f7e3c8f?w=400', 'Dairy', 5, 203, true, ARRAY['Free-range hens', 'Organic feed', 'Farm fresh', 'Rich golden yolks']),
+('Grass-Fed Ribeye Steak', 'Premium grass-fed ribeye steak, perfectly marbled, 12oz cut', 32.99, 39.99, 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400', 'Meat', 5, 156, true, ARRAY['Grass-fed beef', '12oz premium cut', 'Perfect marbling', 'Restaurant quality']),
+('Fresh Atlantic Salmon', 'Wild-caught Atlantic salmon fillet, sustainably sourced, 1lb', 18.99, 22.99, 'https://images.unsplash.com/photo-1485704686097-ed47f7263ca4?w=400', 'Seafood', 4, 92, true, ARRAY['Wild-caught', 'Sustainably sourced', 'Rich in omega-3', 'Restaurant grade']),
+('Seasonal Vegetable Box', 'Weekly selection of fresh organic vegetables from local farms', 22.99, NULL, 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400', 'Produce', 5, 178, true, ARRAY['Organic certified', 'Locally grown', 'Seasonal variety', 'Farm to table']),
+('Artisan Pasta Collection', 'Hand-made pasta variety pack with 4 different shapes and sauces', 16.99, 19.99, 'https://images.unsplash.com/photo-1621996346565-e3dbc36d2844?w=400', 'Pantry', 4, 134, true, ARRAY['Hand-made pasta', '4 varieties included', 'Traditional recipes', 'Premium ingredients']),
+('Craft Coffee Beans', 'Single-origin Ethiopian coffee beans, medium roast, 12oz bag', 14.99, NULL, 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400', 'Beverages', 5, 267, true, ARRAY['Single-origin', 'Medium roast', 'Ethically sourced', 'Freshly roasted']),
+('Gourmet Chocolate Truffles', 'Belgian chocolate truffles with assorted flavors, gift box of 12', 19.99, 24.99, 'https://images.unsplash.com/photo-1511381939415-e44015466834?w=400', 'Desserts', 4, 98, true, ARRAY['Belgian chocolate', '12 piece gift box', 'Assorted flavors', 'Luxury packaging']);

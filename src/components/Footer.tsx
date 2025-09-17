@@ -22,12 +22,12 @@ const Footer: React.FC = () => {
   ];
 
   const categories = [
-    { label: 'Headphones', href: '#headphones' },
-    { label: 'Smartphones', href: '#smartphones' },
-    { label: 'Laptops', href: '#laptops' },
-    { label: 'Accessories', href: '#accessories' },
-    { label: 'Smart Watches', href: '#watches' },
-    { label: 'Gaming', href: '#gaming' },
+    { label: 'Fresh Produce', href: '#produce' },
+    { label: 'Bakery', href: '#bakery' },
+    { label: 'Meat & Seafood', href: '#meat' },
+    { label: 'Dairy', href: '#dairy' },
+    { label: 'Pantry Essentials', href: '#pantry' },
+    { label: 'Beverages', href: '#beverages' },
   ];
 
   return (
@@ -39,25 +39,25 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <div className="w-8 h-8 primary-gradient rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">E</span>
+                <span className="text-white font-bold text-lg">F</span>
               </div>
-              <span className="text-xl font-bold">EliteStore</span>
+              <span className="text-xl font-bold">FreshMarket</span>
             </div>
             <p className="text-background/80 leading-relaxed">
-              Your premier destination for cutting-edge technology and premium electronics. Quality, innovation, and exceptional service since 2020.
+              Your trusted source for fresh, gourmet foods and artisan ingredients. From farm to table, quality and freshness guaranteed since 2020.
             </p>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm text-background/80">
                 <Mail className="w-4 h-4" />
-                <span>hello@elitestore.com</span>
+                <span>hello@freshmarket.com</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-background/80">
                 <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
+                <span>+1 (555) 123-FOOD</span>
               </div>
               <div className="flex items-center gap-2 text-sm text-background/80">
                 <MapPin className="w-4 h-4" />
-                <span>123 Tech Street, Digital City</span>
+                <span>456 Fresh Avenue, Food District</span>
               </div>
             </div>
           </div>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
             <p className="text-background/80 text-sm mb-4">
-              Subscribe to our newsletter for the latest products and exclusive deals.
+              Subscribe to our newsletter for fresh arrivals and exclusive culinary deals.
             </p>
             <div className="space-y-3">
               <div className="flex gap-2">
@@ -141,10 +141,10 @@ const Footer: React.FC = () => {
         <div className="border-t border-background/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-background/60 text-sm">
-              © {currentYear} EliteStore. All rights reserved.
+              © {currentYear} FreshMarket. All rights reserved.
             </p>
             <div className="flex items-center gap-6 text-sm text-background/60">
-              <span>Made with ❤️ for tech enthusiasts</span>
+              <span>Made with ❤️ for food enthusiasts</span>
             </div>
           </div>
         </div>

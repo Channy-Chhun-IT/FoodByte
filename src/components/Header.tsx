@@ -14,9 +14,9 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount, onCartClick }) => {
 
   const navLinks = [
     { label: 'Home', href: '#home' },
-    { label: 'Shop', href: '#shop' },
+    { label: 'Fresh Produce', href: '#shop' },
+    { label: 'Bakery', href: '#bakery' },
     { label: 'About', href: '#about' },
-    { label: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -26,9 +26,9 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount, onCartClick }) => {
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 primary-gradient rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">E</span>
+              <span className="text-white font-bold text-lg">F</span>
             </div>
-            <span className="text-xl font-bold text-foreground">EliteStore</span>
+            <span className="text-xl font-bold text-foreground">FreshMarket</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -50,7 +50,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount, onCartClick }) => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
               <Input
                 type="text"
-                placeholder="Search products..."
+                  placeholder="Search fresh foods..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="search-input pl-10"
@@ -118,7 +118,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemCount, onCartClick }) => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4" />
                 <Input
                   type="text"
-                  placeholder="Search products..."
+                  placeholder="Search fresh foods..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="search-input pl-10"

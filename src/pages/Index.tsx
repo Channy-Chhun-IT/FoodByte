@@ -91,11 +91,11 @@ const Index: React.FC = () => {
           {/* Section Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Featured Products
+              Fresh & Gourmet Selection
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover our carefully curated collection of premium tech products, 
-              each selected for quality, innovation, and exceptional performance.
+              Discover our carefully curated collection of premium foods and fresh ingredients, 
+              each selected for quality, freshness, and exceptional flavor.
             </p>
           </div>
 
@@ -143,8 +143,8 @@ const Index: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Free Shipping</h3>
-              <p className="text-muted-foreground">Free shipping on all orders over $50. Fast and reliable delivery worldwide.</p>
+              <h3 className="text-xl font-semibold mb-2">Same Day Delivery</h3>
+              <p className="text-muted-foreground">Fresh foods delivered same day on all orders over $25. Fast and reliable delivery.</p>
             </div>
             
             <div className="text-center p-6">
@@ -153,8 +153,8 @@ const Index: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">2-Year Warranty</h3>
-              <p className="text-muted-foreground">Comprehensive warranty coverage on all products with expert support.</p>
+              <h3 className="text-xl font-semibold mb-2">Fresh Guarantee</h3>
+              <p className="text-muted-foreground">100% freshness guarantee on all produce and perishables with quality assurance.</p>
             </div>
             
             <div className="text-center p-6">
@@ -164,7 +164,7 @@ const Index: React.FC = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Easy Returns</h3>
-              <p className="text-muted-foreground">30-day hassle-free returns. Not satisfied? Get your money back.</p>
+              <p className="text-muted-foreground">7-day satisfaction guarantee. Not satisfied? Get your money back hassle-free.</p>
             </div>
           </div>
         </div>
