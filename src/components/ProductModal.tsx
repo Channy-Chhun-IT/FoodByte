@@ -95,13 +95,13 @@ const ProductModal: React.FC<ProductModalProps> = ({
                 <span className="text-3xl font-bold text-success">
                   ${product.price}
                 </span>
-                {product.originalPrice && (
+                {product.original_price && (
                   <>
                     <span className="text-xl text-muted-foreground line-through">
-                      ${product.originalPrice}
+                      ${product.original_price}
                     </span>
                     <span className="bg-sale text-sale-foreground px-2 py-1 rounded-md text-sm font-semibold">
-                      {Math.round((1 - product.price / product.originalPrice) * 100)}% OFF
+                      {Math.round((1 - product.price / product.original_price) * 100)}% OFF
                     </span>
                   </>
                 )}
@@ -146,20 +146,20 @@ const ProductModal: React.FC<ProductModalProps> = ({
 
               {/* Stock Status */}
               <div className="flex items-center gap-2">
-                <div className={`w-2 h-2 rounded-full ${product.inStock ? 'bg-success' : 'bg-destructive'}`} />
-                <span className={`text-sm font-medium ${product.inStock ? 'text-success' : 'text-destructive'}`}>
-                  {product.inStock ? 'In Stock' : 'Out of Stock'}
+                <div className={`w-2 h-2 rounded-full ${product.in_stock ? 'bg-success' : 'bg-destructive'}`} />
+                <span className={`text-sm font-medium ${product.in_stock ? 'text-success' : 'text-destructive'}`}>
+                  {product.in_stock ? 'In Stock' : 'Out of Stock'}
                 </span>
               </div>
 
               {/* Add to Cart Button */}
               <Button 
                 onClick={handleAddToCart}
-                disabled={!product.inStock}
+                disabled={!product.in_stock}
                 className="btn-hero w-full"
               >
                 <ShoppingCart className="w-5 h-5 mr-2" />
-                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                {product.in_stock ? 'Add to Cart' : 'Out of Stock'}
               </Button>
             </div>
           </div>

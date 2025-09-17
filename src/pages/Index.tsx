@@ -1,18 +1,53 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import ProductModal from '@/components/ProductModal';
 import Footer from '@/components/Footer';
-import { products } from '@/data/products';
 import { Product } from '@/types/Product';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const Index: React.FC = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [cart, setCart] = useState<Product[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
   const { toast } = useToast();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data, error } = await supabase
+          .from('products')
+          .select('*')
+          .order('created_at', { ascending: true });
+
+        if (error) {
+          console.error('Error fetching products:', error);
+          toast({
+            title: "Error",
+            description: "Failed to load products. Please try again.",
+            variant: "destructive"
+          });
+        } else {
+          setProducts(data || []);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        toast({
+          title: "Error", 
+          description: "Failed to load products. Please try again.",
+          variant: "destructive"
+        });
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [toast]);
 
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
@@ -66,14 +101,27 @@ const Index: React.FC = () => {
 
           {/* Products Grid */}
           <div className="products-grid">
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                onProductClick={handleProductClick}
-                onAddToCart={handleAddToCart}
-              />
-            ))}
+            {loading ? (
+              <div className="col-span-full flex justify-center items-center py-12">
+                <div className="text-center">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+                  <p className="text-muted-foreground">Loading products...</p>
+                </div>
+              </div>
+            ) : products.length === 0 ? (
+              <div className="col-span-full text-center py-12">
+                <p className="text-muted-foreground">No products found.</p>
+              </div>
+            ) : (
+              products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  onProductClick={handleProductClick}
+                  onAddToCart={handleAddToCart}
+                />
+              ))
+            )}
           </div>
 
           {/* Load More Button */}

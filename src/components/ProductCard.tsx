@@ -58,7 +58,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
         </div>
 
         {/* Sale Badge */}
-        {product.originalPrice && (
+        {product.original_price && (
           <div className="absolute top-3 left-3 bg-sale text-sale-foreground px-2 py-1 rounded-md text-xs font-semibold">
             SALE
           </div>
@@ -95,8 +95,8 @@ const ProductCard: React.FC<ProductCardProps> = ({
         {/* Price */}
         <div className="flex items-center gap-2">
           <span className="price">${product.price}</span>
-          {product.originalPrice && (
-            <span className="price-original">${product.originalPrice}</span>
+          {product.original_price && (
+            <span className="price-original">${product.original_price}</span>
           )}
         </div>
 
