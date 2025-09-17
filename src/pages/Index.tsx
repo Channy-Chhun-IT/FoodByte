@@ -3,6 +3,8 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ProductCard from '@/components/ProductCard';
 import ProductModal from '@/components/ProductModal';
+import ProductCarousel from '@/components/ProductCarousel';
+import ReviewsSection from '@/components/ReviewsSection';
 import Footer from '@/components/Footer';
 import { Product } from '@/types/Product';
 import { useToast } from '@/hooks/use-toast';
@@ -169,6 +171,16 @@ const Index: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Product Carousel */}
+      <ProductCarousel 
+        products={products}
+        onProductClick={handleProductClick}
+        onAddToCart={handleAddToCart}
+      />
+
+      {/* Reviews Section */}
+      <ReviewsSection />
 
       {/* Footer */}
       <Footer />
