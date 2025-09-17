@@ -7,45 +7,45 @@
 @layer base {
   :root {
     /* Core Colors */
-    --background: 0 0% 100%;
-    --foreground: 216 12% 8%;
+    --background: 0 0% 100%; /* #FFFFFF */
+    --foreground: 0 0% 18%; /* #2E2E2E */
 
     /* Card System */
     --card: 0 0% 100%;
-    --card-foreground: 216 12% 8%;
+    --card-foreground: 0 0% 18%;
 
     /* Interactive Elements */
     --popover: 0 0% 100%;
-    --popover-foreground: 216 12% 8%;
+    --popover-foreground: 0 0% 18%;
 
-    /* Brand Colors - Modern Purple/Blue Gradient Theme */
-    --primary: 250 84% 54%;
+    /* Brand Colors - Fast Food Theme */
+    --primary: 358 78% 56%; /* #E53935 */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 250 84% 60%;
+    --primary-hover: 358 78% 62%;
 
     /* Secondary Actions */
-    --secondary: 216 12% 96%;
-    --secondary-foreground: 216 12% 8%;
-    --secondary-hover: 216 12% 92%;
+    --secondary: 48 100% 50%; /* #FFCC00 */
+    --secondary-foreground: 0 0% 18%;
+    --secondary-hover: 48 100% 55%;
 
     /* Muted Elements */
-    --muted: 216 12% 96%;
-    --muted-foreground: 216 12% 45%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
     /* Accent Colors */
-    --accent: 250 84% 54%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 48 100% 50%; /* #FFCC00 */
+    --accent-foreground: 0 0% 18%;
 
     /* Status Colors */
-    --destructive: 0 84% 60%;
+    --destructive: 358 78% 56%;
     --destructive-foreground: 0 0% 100%;
-    --success: 142 76% 36%;
+    --success: 120 100% 25%; /* A suitable green */
     --success-foreground: 0 0% 100%;
 
     /* UI Elements */
-    --border: 216 12% 88%;
-    --input: 216 12% 88%;
-    --ring: 250 84% 54%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 358 78% 56%;
 
     /* Design Tokens */
     --radius: 0.75rem;
@@ -67,7 +67,7 @@
     --shadow-primary: 0 4px 15px -3px hsl(250 84% 54% / 0.3);
 
     /* Typography */
-    --font-heading: "Inter", system-ui, sans-serif;
+    --font-heading: "Lilita One", sans-serif;
     --font-body: "Inter", system-ui, sans-serif;
 
     /* Animations */
@@ -86,41 +86,41 @@
   }
 
   .dark {
-    --background: 216 12% 8%;
-    --foreground: 0 0% 98%;
+    --background: 0 0% 18%; /* #2E2E2E */
+    --foreground: 0 0% 98%; /* #FAFAFA */
 
-    --card: 216 12% 8%;
+    --card: 0 0% 18%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 216 12% 8%;
+    --popover: 0 0% 18%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 250 84% 54%;
+    --primary: 358 78% 56%; /* #E53935 */
     --primary-foreground: 0 0% 100%;
-    --primary-hover: 250 84% 60%;
+    --primary-hover: 358 78% 62%;
 
-    --secondary: 216 12% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --secondary-hover: 216 12% 18%;
+    --secondary: 48 100% 50%; /* #FFCC00 */
+    --secondary-foreground: 0 0% 18%;
+    --secondary-hover: 48 100% 55%;
 
-    --muted: 216 12% 15%;
-    --muted-foreground: 216 12% 65%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 250 84% 54%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 48 100% 50%;
+    --accent-foreground: 0 0% 18%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 358 78% 56%;
     --destructive-foreground: 0 0% 100%;
-    --success: 142 76% 36%;
+    --success: 120 100% 25%;
     --success-foreground: 0 0% 100%;
 
-    --border: 216 12% 18%;
-    --input: 216 12% 18%;
-    --ring: 250 84% 54%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 358 78% 56%;
 
-    --price: 142 76% 36%;
+    --price: 120 100% 25%;
     --price-foreground: 0 0% 100%;
-    --sale: 0 84% 60%;
+    --sale: 358 78% 56%;
     --sale-foreground: 0 0% 100%;
 
     --sidebar-background: 240 5.9% 10%;

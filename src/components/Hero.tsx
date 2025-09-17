@@ -10,74 +10,33 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section className="relative min-h-[600px] lg:min-h-[700px] flex items-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 hero-gradient"></div>
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
-        style={{ backgroundImage: `url(${heroBanner})` }}
-      ></div>
-      
-      {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-3xl mx-auto text-center text-white">
-          {/* Badge */}
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6 animate-fade-in">
-            <Star className="w-4 h-4 text-yellow-400 fill-current mr-2" />
-            <span className="text-sm font-medium">Fresh & Premium Quality</span>
-          </div>
-
-          {/* Main Heading */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-slide-up">
-            Fresh Gourmet Foods
-            <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
-              Delivered Daily
-            </span>
+    <section 
+      className="min-h-[600px] lg:min-h-[700px] flex items-center justify-center text-center"
+      style={{
+        background: 'linear-gradient(to bottom, #E53935 70%, #FFF8E1 30%)'
+      }}
+    >
+      <div className="container mx-auto px-4">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading text-foreground mb-6 animate-slide-up">
+            Classic Fast Food Combo
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto animate-fade-in">
-            From farm-fresh produce to artisan breads and premium meats. Experience the finest quality ingredients delivered straight to your door.
+          <p className="text-lg md:text-xl text-foreground/90 mb-8 max-w-2xl mx-auto animate-fade-in">
+            Craving a delicious deal? Get our classic combo, packed with flavor and fun!
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-scale-in">
+          <div className="animate-scale-in">
             <Button 
               onClick={scrollToProducts}
-              className="btn-hero group"
+              className="bg-secondary hover:bg-secondary-hover text-secondary-foreground px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition-transform hover:scale-105 group"
             >
-              Shop Fresh Foods
+              Order Now
               <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button 
-              variant="outline" 
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 px-8 py-4 rounded-xl font-semibold text-lg backdrop-blur-sm"
-            >
-              Learn More
-            </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-8 mt-12 text-white/80">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-white">5K+</div>
-              <div className="text-sm">Happy Families</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-white">100%</div>
-              <div className="text-sm">Fresh Guarantee</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-white">Same Day</div>
-              <div className="text-sm">Delivery</div>
-            </div>
           </div>
         </div>
       </div>
-
-      {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
     </section>
   );
 };

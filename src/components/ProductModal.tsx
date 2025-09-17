@@ -1,7 +1,15 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { X, ShoppingCart, Star, Check, Truck, Shield, RotateCcw } from 'lucide-react';
-import { Product } from '@/types/Product';
+import React from "react";
+import { Button } from "@/components/ui/button";
+import {
+  X,
+  ShoppingCart,
+  Star,
+  Check,
+  Truck,
+  Shield,
+  RotateCcw,
+} from "lucide-react";
+import { Product } from "@/types/Product";
 
 interface ProductModalProps {
   product: Product | null;
@@ -10,11 +18,11 @@ interface ProductModalProps {
   onAddToCart: (product: Product) => void;
 }
 
-const ProductModal: React.FC<ProductModalProps> = ({ 
-  product, 
-  isOpen, 
-  onClose, 
-  onAddToCart 
+const ProductModal: React.FC<ProductModalProps> = ({
+  product,
+  isOpen,
+  onClose,
+  onAddToCart,
 }) => {
   if (!isOpen || !product) return null;
 
@@ -28,9 +36,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
       <Star
         key={i}
         className={`w-5 h-5 ${
-          i < rating 
-            ? 'text-yellow-400 fill-current' 
-            : 'text-gray-300'
+          i < rating ? "text-yellow-400 fill-current" : "text-gray-300"
         }`}
       />
     ));
@@ -39,10 +45,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
   return (
     <>
       {/* Backdrop */}
-      <div 
-        className="modal-backdrop animate-fade-in"
-        onClick={onClose}
-      />
+      <div className="modal-backdrop animate-fade-in" onClick={onClose} />
 
       {/* Modal */}
       <div className="fixed inset-4 md:inset-8 lg:inset-16 bg-background rounded-2xl shadow-2xl z-50 overflow-hidden animate-scale-in">
@@ -82,9 +85,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
 
               {/* Rating */}
               <div className="flex items-center gap-3">
-                <div className="flex">
-                  {renderStars(product.rating)}
-                </div>
+                <div className="flex">{renderStars(product.rating)}</div>
                 <span className="text-sm text-muted-foreground">
                   {product.rating} stars ({product.reviews} reviews)
                 </span>
@@ -101,7 +102,10 @@ const ProductModal: React.FC<ProductModalProps> = ({
                       ${product.original_price}
                     </span>
                     <span className="bg-sale text-sale-foreground px-2 py-1 rounded-md text-sm font-semibold">
-                      {Math.round((1 - product.price / product.original_price) * 100)}% OFF
+                      {Math.round(
+                        (1 - product.price / product.original_price) * 100
+                      )}
+                      % OFF
                     </span>
                   </>
                 )}
@@ -136,30 +140,38 @@ const ProductModal: React.FC<ProductModalProps> = ({
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <Shield className="w-4 h-4 text-primary" />
-                  <span>2 Year Warranty</span>
+                  <span>1 day Warranty</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm">
                   <RotateCcw className="w-4 h-4 text-primary" />
-                  <span>30-Day Returns</span>
+                  <span>No Returns</span>
                 </div>
               </div>
 
               {/* Stock Status */}
               <div className="flex items-center gap-2">
-                <div className={`w-2 h-2 rounded-full ${product.in_stock ? 'bg-success' : 'bg-destructive'}`} />
-                <span className={`text-sm font-medium ${product.in_stock ? 'text-success' : 'text-destructive'}`}>
-                  {product.in_stock ? 'In Stock' : 'Out of Stock'}
+                <div
+                  className={`w-2 h-2 rounded-full ${
+                    product.in_stock ? "bg-success" : "bg-destructive"
+                  }`}
+                />
+                <span
+                  className={`text-sm font-medium ${
+                    product.in_stock ? "text-success" : "text-destructive"
+                  }`}
+                >
+                  {product.in_stock ? "In Stock" : "Out of Stock"}
                 </span>
               </div>
 
               {/* Add to Cart Button */}
-              <Button 
+              <Button
                 onClick={handleAddToCart}
                 disabled={!product.in_stock}
                 className="btn-hero w-full"
               >
                 <ShoppingCart className="w-5 h-5 mr-2" />
-                {product.in_stock ? 'Add to Cart' : 'Out of Stock'}
+                {product.in_stock ? "Add to Cart" : "Out of Stock"}
               </Button>
             </div>
           </div>

@@ -1,19 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import ProductCard from '@/components/ProductCard';
-import ProductModal from '@/components/ProductModal';
-import ProductCarousel from '@/components/ProductCarousel';
-import ReviewsSection from '@/components/ReviewsSection';
-import Footer from '@/components/Footer';
-import { Product } from '@/types/Product';
-import { useToast } from '@/hooks/use-toast';
-import { supabase } from '@/integrations/supabase/client';
+import React, { useState, useEffect } from "react";
+import Header from "@/components/Header";
+import Hero from "@/components/Hero";
+import ProductCard from "@/components/ProductCard";
+import ProductModal from "@/components/ProductModal";
+import ProductCarousel from "@/components/ProductCarousel";
+import ReviewsSection from "@/components/ReviewsSection";
+import Footer from "@/components/Footer";
+import { Product } from "@/types/Product";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { Session } from "@supabase/supabase-js";
 
-const Index: React.FC = () => {
+interface Profile {
+  username: string | null;
+}
+
+interface IndexProps {
+  cart: Product[];
+  onAddToCart: (product: Product) => void;
+  session: Session | null;
+  profile: Profile | null;
+}
+
+const Index: React.FC<IndexProps> = ({
+  cart,
+  onAddToCart,
+  session,
+  profile,
+}) => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [cart, setCart] = useState<Product[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const { toast } = useToast();
@@ -22,26 +38,26 @@ const Index: React.FC = () => {
     const fetchProducts = async () => {
       try {
         const { data, error } = await supabase
-          .from('products')
-          .select('*')
-          .order('created_at', { ascending: true });
+          .from("products")
+          .select("*")
+          .order("created_at", { ascending: true });
 
         if (error) {
-          console.error('Error fetching products:', error);
+          console.error("Error fetching products:", error);
           toast({
             title: "Error",
             description: "Failed to load products. Please try again.",
-            variant: "destructive"
+            variant: "destructive",
           });
         } else {
           setProducts(data || []);
         }
       } catch (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
         toast({
-          title: "Error", 
+          title: "Error",
           description: "Failed to load products. Please try again.",
-          variant: "destructive"
+          variant: "destructive",
         });
       } finally {
         setLoading(false);
@@ -61,8 +77,8 @@ const Index: React.FC = () => {
     setSelectedProduct(null);
   };
 
-  const handleAddToCart = (product: Product) => {
-    setCart(prevCart => [...prevCart, product]);
+  const handleAddToCartWithToast = (product: Product) => {
+    onAddToCart(product);
     toast({
       title: "Added to Cart!",
       description: `${product.name} has been added to your cart.`,
@@ -79,9 +95,11 @@ const Index: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <Header 
+      <Header
         cartItemCount={cart.length}
         onCartClick={handleCartClick}
+        session={session}
+        profile={profile}
       />
 
       {/* Hero Section */}
@@ -96,8 +114,9 @@ const Index: React.FC = () => {
               Fresh & Gourmet Selection
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Discover our carefully curated collection of premium foods and fresh ingredients, 
-              each selected for quality, freshness, and exceptional flavor.
+              Discover our carefully curated collection of premium foods and
+              fresh ingredients, each selected for quality, freshness, and
+              exceptional flavor.
             </p>
           </div>
 
@@ -120,7 +139,7 @@ const Index: React.FC = () => {
                   key={product.id}
                   product={product}
                   onProductClick={handleProductClick}
-                  onAddToCart={handleAddToCart}
+                  onAddToCart={handleAddToCartWithToast}
                 />
               ))
             )}
@@ -128,9 +147,7 @@ const Index: React.FC = () => {
 
           {/* Load More Button */}
           <div className="text-center mt-12">
-            <button className="btn-secondary">
-              Load More Products
-            </button>
+            <button className="btn-secondary">Load More Products</button>
           </div>
         </div>
       </section>
@@ -141,42 +158,81 @@ const Index: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-6">
               <div className="w-16 h-16 primary-gradient rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Same Day Delivery</h3>
-              <p className="text-muted-foreground">Fresh foods delivered same day on all orders over $25. Fast and reliable delivery.</p>
+              <p className="text-muted-foreground">
+                Fresh foods delivered same day on all orders over $25. Fast and
+                reliable delivery.
+              </p>
             </div>
-            
+
             <div className="text-center p-6">
               <div className="w-16 h-16 primary-gradient rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Fresh Guarantee</h3>
-              <p className="text-muted-foreground">100% freshness guarantee on all produce and perishables with quality assurance.</p>
+              <p className="text-muted-foreground">
+                100% freshness guarantee on all produce and perishables with
+                quality assurance.
+              </p>
             </div>
-            
+
             <div className="text-center p-6">
               <div className="w-16 h-16 primary-gradient rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z" />
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m9 14V5a2 2 0 00-2-2H6a2 2 0 00-2 2v16l4-2 4 2 4-2 4 2z"
+                  />
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Easy Returns</h3>
-              <p className="text-muted-foreground">7-day satisfaction guarantee. Not satisfied? Get your money back hassle-free.</p>
+              <p className="text-muted-foreground">
+                7-day satisfaction guarantee. Not satisfied? Get your money back
+                hassle-free.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Product Carousel */}
-      <ProductCarousel 
+      <ProductCarousel
         products={products}
         onProductClick={handleProductClick}
-        onAddToCart={handleAddToCart}
+        onAddToCart={handleAddToCartWithToast}
       />
 
       {/* Reviews Section */}
@@ -190,7 +246,7 @@ const Index: React.FC = () => {
         product={selectedProduct}
         isOpen={isModalOpen}
         onClose={handleCloseModal}
-        onAddToCart={handleAddToCart}
+        onAddToCart={handleAddToCartWithToast}
       />
     </div>
   );

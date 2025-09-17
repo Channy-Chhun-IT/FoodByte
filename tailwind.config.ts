@@ -67,7 +67,7 @@ export default {
         },
       },
       fontFamily: {
-        heading: ["Inter", "system-ui", "sans-serif"],
+        heading: ["Lilita One", "sans-serif"],
         body: ["Inter", "system-ui", "sans-serif"],
       },
       borderRadius: {

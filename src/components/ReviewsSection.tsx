@@ -1,33 +1,36 @@
-import React from 'react';
-import { Star } from 'lucide-react';
-import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
+import React from "react";
+import { Star } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const ReviewsSection: React.FC = () => {
   const reviews = [
     {
       id: 1,
-      name: "Sarah Johnson",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b08c?w=150&h=150&fit=crop&crop=face",
+      name: "Chhun Channy",
+      avatar: "/src/assets/channy-1.jpg",
       rating: 5,
-      review: "The quality of fresh produce is absolutely amazing! Everything arrives perfectly fresh and the same-day delivery is a game changer for our family.",
-      verified: true
+      review:
+        "The quality of fresh produce is absolutely amazing! Everything arrives perfectly fresh and the same-day delivery is a game changer for our family.",
+      verified: true,
     },
     {
       id: 2,
-      name: "Michael Chen",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      name: "Channy Chhun",
+      avatar: "/src/assets/channy-1.jpg",
       rating: 5,
-      review: "I've been ordering from FreshMarket for months now. The artisan breads and organic products are top-notch, and the customer service is exceptional.",
-      verified: true
+      review:
+        "I've been ordering from FoodByte for months now. The artisan breads and organic products are top-notch, and the customer service is exceptional.",
+      verified: true,
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      name: "Neang Neang",
+      avatar: "/src/assets/channy-1.jpg",
       rating: 4,
-      review: "Love the variety and freshness guarantee! The seasonal vegetable boxes have introduced our family to so many new flavors. Highly recommend!",
-      verified: true
-    }
+      review:
+        "Love the variety and freshness guarantee! The seasonal vegetable boxes have introduced our family to so many new flavors. Highly recommend!",
+      verified: true,
+    },
   ];
 
   return (
@@ -38,7 +41,8 @@ const ReviewsSection: React.FC = () => {
             What Our Customers Say
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join thousands of satisfied families who trust us for their fresh food needs
+            Join thousands of satisfied families who trust us for their fresh
+            food needs
           </p>
         </div>
 
@@ -55,8 +59,8 @@ const ReviewsSection: React.FC = () => {
                     key={i}
                     className={`w-5 h-5 ${
                       i < review.rating
-                        ? 'text-yellow-400 fill-current'
-                        : 'text-muted-foreground'
+                        ? "text-yellow-400 fill-current"
+                        : "text-muted-foreground"
                     }`}
                   />
                 ))}
@@ -70,16 +74,19 @@ const ReviewsSection: React.FC = () => {
               {/* Reviewer Info */}
               <div className="flex items-center gap-4">
                 <Avatar className="w-12 h-12 border-2 border-primary/20">
-                  <AvatarImage 
-                    src={review.avatar} 
+                  <AvatarImage
+                    src={review.avatar}
                     alt={review.name}
                     className="object-cover"
                   />
                   <AvatarFallback className="bg-primary/10 text-primary font-semibold">
-                    {review.name.split(' ').map(n => n[0]).join('')}
+                    {review.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
                   </AvatarFallback>
                 </Avatar>
-                
+
                 <div>
                   <div className="flex items-center gap-2">
                     <h4 className="font-semibold text-foreground">
