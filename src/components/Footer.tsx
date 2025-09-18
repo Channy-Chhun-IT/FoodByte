@@ -21,10 +21,10 @@ const Footer: React.FC = () => {
   ];
 
   const footerLinks = [
-    { label: "Menu", href: "#menu" },
-    { label: "Deals", href: "#deals" },
-    { label: "Locations", href: "#locations" },
-    { label: "About Us", href: "#about" },
+    { label: "Menu", href: "menu" },
+    { label: "Deals", href: "deals" },
+    { label: "Store", href: "store" },
+    { label: "About Us", href: "about" },
   ];
 
   return (

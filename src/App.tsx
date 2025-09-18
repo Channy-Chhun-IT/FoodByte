@@ -208,6 +208,7 @@ const App = () => {
                 cart={cart}
                 onUpdateQuantity={handleUpdateQuantity}
                 onRemoveFromCart={handleRemoveFromCart}
+                onAddToCart={handleAddToCart}
                 session={session}
                 profile={profile}
               />

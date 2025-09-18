@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Plus, Minus, Trash2, ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Session } from "@supabase/supabase-js";
+import RecommendedProducts from "@/components/RecommendedProducts";
 
 interface Profile {
   username: string | null;
@@ -15,6 +16,7 @@ interface CartProps {
   cart: Product[];
   onUpdateQuantity: (productId: string, newQuantity: number) => void;
   onRemoveFromCart: (productId: string) => void;
+  onAddToCart: (product: Product) => void;
   session: Session | null;
   profile: Profile | null;
 }
@@ -23,6 +25,7 @@ const Cart: React.FC<CartProps> = ({
   cart,
   onUpdateQuantity,
   onRemoveFromCart,
+  onAddToCart,
   session,
   profile,
 }) => {
@@ -123,10 +126,15 @@ const Cart: React.FC<CartProps> = ({
                     </div>
                   </div>
                 ))}
+                {/* Recommended Products Section */}
+                <RecommendedProducts
+                  onAddToCart={onAddToCart}
+                  currentCartIds={aggregatedCart.map((item) => item.product.id)}
+                />
               </div>
 
               {/* Order Summary */}
-              <div className="bg-white p-6 rounded-lg shadow-md border-2 border-foreground">
+              <div className="bg-white p-6 rounded-lg shadow-md border-2 border-foreground h-fit">
                 <h2 className="text-2xl font-bold mb-4">Order Summary</h2>
                 <div className="space-y-2">
                   <div className="flex justify-between">
