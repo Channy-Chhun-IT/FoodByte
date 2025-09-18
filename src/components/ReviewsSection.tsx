@@ -1,9 +1,9 @@
 import React from "react";
 import { Star } from "lucide-react";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import avatar1 from '/avatars/avatar1.png';
-import avatar2 from '/avatars/avatar2.png';
-import avatar3 from '/avatars/avatar3.png';
+import avatar1 from "/avatars/avatar1.png";
+import avatar2 from "/avatars/avatar2.png";
+import avatar3 from "/avatars/avatar3.png";
 
 const ReviewsSection: React.FC = () => {
   const reviews = [
